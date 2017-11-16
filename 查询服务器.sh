@@ -1,0 +1,16 @@
+#!/bin/sh
+server=$1
+echo "${server}服务器下最新部署记录"
+echo "--------------------------------"
+echo "proj: "
+ssh ${server} "tail -n 1 /srv/www/udesk_proj/revisions.log"
+echo "--------------------------------"
+echo "qilin_app: "
+ssh ${server} "tail -n 1 /srv/www/udesk_qilin_app/revisions.log"
+echo "--------------------------------"
+echo "webapp_build: "
+ssh ${server} "tail -n 1 /srv/www/udesk_webapp_build/revisions.log"
+echo "--------------------------------"
+echo "im: "
+ssh ${server} "tail -n 1 /srv/www/udesk_im/revisions.log"
+echo "--------------------------------"

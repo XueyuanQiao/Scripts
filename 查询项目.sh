@@ -1,0 +1,18 @@
+#!/bin/sh
+name=$1
+echo "t1 :          \c"
+ssh t1 "tail -1 /srv/www/udesk_${name}/revisions.log |grep -Eo '20[0-9]+ by.+' "
+echo "t2 :          \c"
+ssh t2 "tail -1 /srv/www/udesk_${name}/revisions.log |grep -Eo '20[0-9]+ by.+' "
+echo "t3 :          \c"
+ssh t3 "tail -1 /srv/www/udesk_${name}/revisions.log |grep -Eo '20[0-9]+ by.+' "
+echo "b1 :          \c"
+ssh b1 "tail -1 /srv/www/udesk_${name}/revisions.log |grep -Eo '20[0-9]+ by.+' "
+echo "b2 :          \c"
+ssh b2 "tail -1 /srv/www/udesk_${name}/revisions.log |grep -Eo '20[0-9]+ by.+' "
+echo "b3 :          \c"
+ssh b3 "tail -1 /srv/www/udesk_${name}/revisions.log |grep -Eo '20[0-9]+ by.+' "
+echo "cat :         \c"
+ssh cat "tail -1 /srv/www/udesk_${name}/revisions.log |grep -Eo '20[0-9]+ by.+' "
+echo "tiger :       \c"
+ssh tiger "tail -1 /srv/www/udesk_${name}/revisions.log |grep -Eo '20[0-9]+ by.+' "
